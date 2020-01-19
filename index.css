@@ -17,6 +17,12 @@ p {
     text-align: left;
 }
 
+ul{
+    display: inline-block;
+    text-align: left;
+    align-content: center;
+}
+
 .showing {
     display: block;
 }

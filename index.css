@@ -5,22 +5,58 @@ body{
     font-size: larger;
 }
 
-.clicked {
-    color: blue;
+.js-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 70px;
 }
 
 .form, .greetings {
     display: none;
 }
 
+input {
+    width: 200px;
+    height: 40px;
+    margin: 4px;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+}  
+
+.name {
+    width: 250px;
+}
+
+
+.deleteAll {
+    height: 43px;
+    border-radius: 10px;
+}
+
+.delBtn {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
 p {
     text-align: left;
+}
+
+.js-deleteAll {
+    border-radius: 3px;
 }
 
 ul{
     display: inline-block;
     text-align: left;
     align-content: center;
+}
+
+li {
+    margin: 2px;
 }
 
 .showing {
@@ -37,7 +73,7 @@ ul{
 }
 
 .bgImage {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

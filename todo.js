@@ -1,7 +1,8 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
     toDoInput = toDoForm.querySelector("input"),
     toDoList = document.querySelector(".js-toDoList"),
-    delAll = document.querySelector(".js-deleteAll");
+    delAll = document.querySelector(".js-deleteAll"),
+    ul = document.querySelector("ul");
 
 const TODO_LS = "toDos";
 let toDos = [];
@@ -9,6 +10,7 @@ let toDos = [];
 function deleteToDo(event) {
     const btn = event.target;
     const li = btn.parentNode;
+    
     toDoList.removeChild(li);
     const cleanToDos = toDos.filter(function(toDo){
         return toDo.id !== parseInt(li.id);
@@ -18,16 +20,12 @@ function deleteToDo(event) {
 }
 
 function deleteAll(event) {
-    const btn = event.target;
-    const li = btn.parentNode;
     const size = toDos.length;
+    const li = ul.children
     for(i=0; i<size; i++){
-        toDoList.remove(li);
+        ul.removeChild(li[0])
+        toDos.splice(i);
     }
-    const cleanAll = toDos.filter(function(toDo){
-      return toDo.id === (size + 1);  
-    })
-    toDos = cleanAll;
     saveToDos();
 }
 
@@ -42,7 +40,6 @@ function paintToDo(text) {
     const span = document.createElement("span");
     const newId = toDos.length + 1;
     delBtn.innerText = "x";
-    delAll.addEventListener("click", deleteAll);
     delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     li.appendChild(span);
@@ -77,6 +74,7 @@ function loadToDos(){
 function init() {
     loadToDos();
     toDoForm.addEventListener("submit", handleSubmit);
+    delAll.addEventListener("click", deleteAll);
 }
 
 init();
